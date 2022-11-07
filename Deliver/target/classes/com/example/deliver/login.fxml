@@ -28,6 +28,6 @@
       <Label layoutX="101.0" layoutY="527.0" prefHeight="15.0" prefWidth="106.0" text="회원이 없으신가요?" />
       <CheckBox fx:id="showPW" layoutX="185.0" layoutY="316.0" mnemonicParsing="false" onAction="#showPassWord" text="비번 확인" />
       <TextField fx:id="hiddenPW" layoutX="185.0" layoutY="279.0" prefHeight="23.0" prefWidth="167.0" />
-      <PasswordField fx:id="userPW" layoutX="185.0" layoutY="279.0" onKeyReleased="#followPW" prefHeight="23.0" prefWidth="167.0" />
+      <PasswordField fx:id="userPW" layoutX="185.0" layoutY="279.0" prefHeight="23.0" prefWidth="167.0" />
    </children>
 </AnchorPane>

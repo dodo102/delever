@@ -43,9 +43,6 @@ public class HelloController {
         }
 
     }
-    public void followPW() {
-        userPW.setText(hiddenPW.getText());
-    }
 
     public void showPassWord() {
         showPW.isSelected();
