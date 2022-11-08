@@ -50,7 +50,6 @@ public class HelloController {
             hiddenPW.setText(userPW.getText());
             userPW.setVisible(false);
             hiddenPW.setVisible(true);
-            return;
         } else {
             userPW.setText(hiddenPW.getText());
             userPW.setVisible(true);
