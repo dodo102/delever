@@ -8,11 +8,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-<<<<<<<< HEAD:Deliver/target/classes/com/example/deliver/cha.fxml
-            fx:controller="com.example.deliver.ChaController"
-========
             fx:controller="com.example.deliver.InviteFriendController"
->>>>>>>> e6ebe6b441cc1900749aa8b65256af048f85dd53:Deliver/src/main/resources/com/example/deliver/inviteFriend.fxml
             prefHeight="400.0" prefWidth="600.0">
 
 </AnchorPane>
