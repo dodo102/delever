@@ -4,6 +4,7 @@ module com.example.deliver {
     requires javafx.graphics;
     requires java.desktop;
     requires java.sql;
+    requires java.datatransfer;
 
 
     opens com.example.deliver to javafx.fxml;
