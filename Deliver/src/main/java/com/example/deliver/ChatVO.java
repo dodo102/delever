@@ -1,16 +1,20 @@
 package com.example.deliver;
 
+import java.sql.Time;
+
 public class ChatVO {
     private String chattingRoomName;
     private String id;
     private String name;
-    private String chatContents;
+    private String chatContent;
+    private Time chatTime;
 
-    public ChatVO(String chattingRoomName, String id) {
+    public ChatVO(String chattingRoomName, String id, Time chatTime) {
         this.chattingRoomName = chattingRoomName;
         this.id = id;
         this.name = name;
-        this.chatContents = chatContents;
+        this.chatContent = chatContent;
+        this.chatTime = chatTime;
     }
 
     public String getChattingRoomName() {
@@ -37,11 +41,19 @@ public class ChatVO {
         this.name = name;
     }
 
-    public String getChatContents() {
-        return chatContents;
+    public String getChatContent() {
+        return chatContent;
     }
 
-    public void setChatContents(String chatContents) {
-        this.chatContents = chatContents;
+    public void setChatContent(String chatContents) {
+        this.chatContent = chatContent;
+    }
+
+    public Time getChatTime() {
+        return chatTime;
+    }
+
+    public void setChatTime(Time chatTime) {
+        this.chatTime = chatTime;
     }
 }
