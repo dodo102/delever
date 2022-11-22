@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -27,6 +28,11 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 public class ChattingRoomController implements Initializable {
+    @FXML
+    private ToggleButton friendSearch;
+
+    @FXML
+    private Pane pane;
 
     @FXML
     private Label chattingRoom;
@@ -55,6 +61,8 @@ public class ChattingRoomController implements Initializable {
     @FXML
     private TableColumn<ChatVO, Time> timeCol;
 
+    String find;
+
     LocalTime now = LocalTime.now();
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH시 mm분 ss초");
@@ -81,7 +89,7 @@ public class ChattingRoomController implements Initializable {
         ResultSet rs = null;
         try {
             chatList.clear();
-            pstmt = conn.prepareStatement("SELECT name, chatContents, chatTime FROM chat WHERE chattingRoomName = ? AND id = ?");
+            pstmt = conn.prepareStatement("SELECT name, chatContent, chatTime FROM chat WHERE chattingRoomName = ? AND id = ?");
             pstmt.setString(1, chattingRoom.getText());
             //pstmt.setString(2, id);
             rs = pstmt.executeQuery();
@@ -103,14 +111,22 @@ public class ChattingRoomController implements Initializable {
         PreparedStatement pstmt = null;
         try {
             pstmt = conn.prepareStatement("INSERT INTO chat VALUES (?,?,?,?,?)");
-            // pstmt.setString(1, name);
+            //pstmt.setString(1, name);
             if (chatInput.equals("")) {
-                pstmt.setString(2, String.valueOf(imgView.getImage()));
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("공백오류");
+                alert.show();
             } else {
-                pstmt.setString(2, chatInput.getText());
+                if (chatInput.getText().matches("/*")) {
+                    find = chatInput.getText().substring(1);
+                    search();
+                    //pstmt.setString(2, );
+                } else {
+                    pstmt.setString(2, chatInput.getText());
+                }
             }
             pstmt.setTime(3, Time.valueOf(formatedNow));
-            // pstmt.setString(4, id);
+            //pstmt.setString(4, id);
             pstmt.setString(5, chattingRoom.getText());
 
             pstmt.executeUpdate();
@@ -135,7 +151,7 @@ public class ChattingRoomController implements Initializable {
             BufferedInputStream bis = new BufferedInputStream(fis);
             Image img = new Image(bis);
             imgView.setImage(img);
-        } catch (FileNotFoundException e) {
+        } catch (NullPointerException | FileNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -164,6 +180,13 @@ public class ChattingRoomController implements Initializable {
         }
     }
 
+    public void pane() {
+        pane.setDisable(false);
+        if (friendSearch.isSelected()) {
+            pane.setDisable(true);
+        }
+    }
+
     public static void search() {
         String clientId = "3vbAs3kmMdj7Lr7HZNHK"; //애플리케이션 클라이언트 아이디
         String clientSecret = "cSen26uwDO"; //애플리케이션 클라이언트 시크릿
@@ -171,13 +194,13 @@ public class ChattingRoomController implements Initializable {
 
         String text = null;
         try {
-            text = URLEncoder.encode("그린팩토리", "UTF-8");
+            text = URLEncoder.encode("find", "UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException("검색어 인코딩 실패", e);
         }
 
 
-        String apiURL = "https://openapi.naver.com/v1/search/blog?query=" + text;    // JSON 결과
+        String apiURL = "https://openapi.naver.com/v1/search/encyc?query=" + text;    // JSON 결과
         //String apiURL = "https://openapi.naver.com/v1/search/blog.xml?query="+ text; // XML 결과
 
 
@@ -187,7 +210,7 @@ public class ChattingRoomController implements Initializable {
         String responseBody = get(apiURL, requestHeaders);
 
 
-        System.out.println(responseBody);
+       // System.out.println(responseBody);
     }
 
 
