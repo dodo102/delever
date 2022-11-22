@@ -81,7 +81,7 @@ public class ChattingRoomController implements Initializable {
         ResultSet rs = null;
         try {
             chatList.clear();
-            pstmt = conn.prepareStatement("SELECT name, chatContents, chatTime FROM chat WHERE chattingRoomName = ? AND id = ?");
+            pstmt = conn.prepareStatement("SELECT name, chatContent, chatTime FROM chat WHERE chattingRoomName = ? AND id = ?");
             pstmt.setString(1, chattingRoom.getText());
             //pstmt.setString(2, id);
             rs = pstmt.executeQuery();
@@ -103,14 +103,16 @@ public class ChattingRoomController implements Initializable {
         PreparedStatement pstmt = null;
         try {
             pstmt = conn.prepareStatement("INSERT INTO chat VALUES (?,?,?,?,?)");
-            // pstmt.setString(1, name);
+            //pstmt.setString(1, name);
             if (chatInput.equals("")) {
-                pstmt.setString(2, String.valueOf(imgView.getImage()));
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("공백오류");
+                alert.show();
             } else {
                 pstmt.setString(2, chatInput.getText());
             }
             pstmt.setTime(3, Time.valueOf(formatedNow));
-            // pstmt.setString(4, id);
+            //pstmt.setString(4, id);
             pstmt.setString(5, chattingRoom.getText());
 
             pstmt.executeUpdate();
@@ -135,7 +137,7 @@ public class ChattingRoomController implements Initializable {
             BufferedInputStream bis = new BufferedInputStream(fis);
             Image img = new Image(bis);
             imgView.setImage(img);
-        } catch (FileNotFoundException e) {
+        } catch (NullPointerException | FileNotFoundException e) {
             e.printStackTrace();
         }
     }
