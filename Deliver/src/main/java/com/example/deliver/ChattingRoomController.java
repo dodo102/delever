@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -27,6 +28,11 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 public class ChattingRoomController implements Initializable {
+    @FXML
+    private ToggleButton friendSearch;
+
+    @FXML
+    private Pane pane;
 
     @FXML
     private Label chattingRoom;
@@ -163,6 +169,13 @@ public class ChattingRoomController implements Initializable {
 
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void pane() {
+        pane.setDisable(false);
+        if (friendSearch.isSelected()) {
+            pane.setDisable(true);
         }
     }
 

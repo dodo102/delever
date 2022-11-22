@@ -22,7 +22,7 @@
         <Button fx:id="send" layoutX="467.0" layoutY="757.0" mnemonicParsing="false" onAction="#send" text="보내기" />
         <Button layoutX="14.0" layoutY="716.0" mnemonicParsing="false" onAction="#fileImageChoose" prefHeight="23.0" prefWidth="190.0" text="첨부파일 선택" />
         <Label fx:id="chattingRoom" prefHeight="55.0" prefWidth="550.0" styleClass="chattingRoomTitle" stylesheets="@css.css" />
-      <ToggleButton layoutX="216.0" layoutY="716.0" mnemonicParsing="false" text="친밀도 확인" />
+      <ToggleButton fx:id="friendSearch" layoutX="216.0" layoutY="716.0" mnemonicParsing="false" text="친밀도 확인" />
         <Button fx:id="inviteGO" layoutX="310.0" layoutY="716.0" mnemonicParsing="false" onAction="#inviteFriendGO" prefHeight="23.0" prefWidth="98.0" text="친구 초대하기" />
         <Button fx:id="chattingExit" layoutX="422.0" layoutY="10.0" mnemonicParsing="false" onAction="#chattingRoomExit" prefHeight="35.0" prefWidth="114.0" text="나가기" />
       <Pane prefHeight="470.0" prefWidth="550.0">
