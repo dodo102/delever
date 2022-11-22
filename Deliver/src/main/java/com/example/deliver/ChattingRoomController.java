@@ -61,6 +61,8 @@ public class ChattingRoomController implements Initializable {
     @FXML
     private TableColumn<ChatVO, Time> timeCol;
 
+    String find;
+
     LocalTime now = LocalTime.now();
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH시 mm분 ss초");
@@ -115,7 +117,13 @@ public class ChattingRoomController implements Initializable {
                 alert.setContentText("공백오류");
                 alert.show();
             } else {
-                pstmt.setString(2, chatInput.getText());
+                if (chatInput.getText().matches("/*")) {
+                    find = chatInput.getText().substring(1);
+                    search();
+                    //pstmt.setString(2, );
+                } else {
+                    pstmt.setString(2, chatInput.getText());
+                }
             }
             pstmt.setTime(3, Time.valueOf(formatedNow));
             //pstmt.setString(4, id);
@@ -186,13 +194,13 @@ public class ChattingRoomController implements Initializable {
 
         String text = null;
         try {
-            text = URLEncoder.encode("그린팩토리", "UTF-8");
+            text = URLEncoder.encode("find", "UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException("검색어 인코딩 실패", e);
         }
 
 
-        String apiURL = "https://openapi.naver.com/v1/search/blog?query=" + text;    // JSON 결과
+        String apiURL = "https://openapi.naver.com/v1/search/encyc?query=" + text;    // JSON 결과
         //String apiURL = "https://openapi.naver.com/v1/search/blog.xml?query="+ text; // XML 결과
 
 
@@ -202,7 +210,7 @@ public class ChattingRoomController implements Initializable {
         String responseBody = get(apiURL, requestHeaders);
 
 
-        System.out.println(responseBody);
+       // System.out.println(responseBody);
     }
 
 

@@ -5,6 +5,7 @@ module com.example.deliver {
     requires java.desktop;
     requires java.sql;
     requires java.datatransfer;
+    requires json.simple;
 
 
     opens com.example.deliver to javafx.fxml;
