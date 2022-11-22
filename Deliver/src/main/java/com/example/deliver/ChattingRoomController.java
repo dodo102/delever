@@ -103,14 +103,16 @@ public class ChattingRoomController implements Initializable {
         PreparedStatement pstmt = null;
         try {
             pstmt = conn.prepareStatement("INSERT INTO chat VALUES (?,?,?,?,?)");
-            pstmt.setString(1, chattingRoom.getText());
-            // pstmt.setString(2, id);
-            // pstmt.setString(3, name);
+            // pstmt.setString(1, name);
             if (chatInput.equals("")) {
-                pstmt.setString(4, String.valueOf(imgView.getImage()));
+                pstmt.setString(2, String.valueOf(imgView.getImage()));
+            } else {
+                pstmt.setString(2, chatInput.getText());
             }
-            pstmt.setString(4, chatInput.getText());
-            pstmt.setTime(5, Time.valueOf(formatedNow));
+            pstmt.setTime(3, Time.valueOf(formatedNow));
+            // pstmt.setString(4, id);
+            pstmt.setString(5, chattingRoom.getText());
+
             pstmt.executeUpdate();
             select();
         } catch (SQLException e) {
