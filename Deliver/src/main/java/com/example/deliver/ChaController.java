@@ -9,20 +9,19 @@ import javafx.stage.Stage;
 import java.awt.*;
 
 public class ChaController  {
-
-    @FXML
-    private Button changBtn;
+    
+    /*private Button changBtn;
     public void changeScene() {
            try {
                  Parent nextScene
                     = FXMLLoader.load(getClass().getResource("chabulid.fxml"));
                   Scene scene = new Scene(nextScene);
 
-                  Stage primaryStage = (Stage) changBtn.getS
+                  Stage primaryStage = (Stage) changBtn.getS;
           } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
+*/
 
 }

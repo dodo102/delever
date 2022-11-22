@@ -9,6 +9,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -33,6 +36,12 @@ public class ChattingRoomController implements Initializable {
 
     @FXML
     private Button inviteGO;
+
+    @FXML
+    private Button chattingExit;
+
+    @FXML
+    private ImageView imgView;
 
     @FXML
     private TableView<ChatVO> chatView;
@@ -72,8 +81,9 @@ public class ChattingRoomController implements Initializable {
         ResultSet rs = null;
         try {
             chatList.clear();
-            pstmt = conn.prepareStatement("SELECT name, chatContents, chatTime FROM chat WHERE chattingRoomName = ?");
+            pstmt = conn.prepareStatement("SELECT name, chatContents, chatTime FROM chat WHERE chattingRoomName = ? AND id = ?");
             pstmt.setString(1, chattingRoom.getText());
+            //pstmt.setString(2, id);
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
@@ -96,6 +106,9 @@ public class ChattingRoomController implements Initializable {
             pstmt.setString(1, chattingRoom.getText());
             // pstmt.setString(2, id);
             // pstmt.setString(3, name);
+            if (chatInput.equals("")) {
+                pstmt.setString(4, String.valueOf(imgView.getImage()));
+            }
             pstmt.setString(4, chatInput.getText());
             pstmt.setTime(5, Time.valueOf(formatedNow));
             pstmt.executeUpdate();
@@ -105,11 +118,43 @@ public class ChattingRoomController implements Initializable {
         }
     }
 
+    public void fileImageChoose() {
+        FileChooser fc = new FileChooser();
+        fc.setTitle("이미지 선택");
+        fc.setInitialDirectory(new File("C:/"));
+        FileChooser.ExtensionFilter imgType = new FileChooser.ExtensionFilter("image file", "*.jpg", "*.jpge", "*.gif", "*.png");
+        FileChooser.ExtensionFilter videoType = new FileChooser.ExtensionFilter("video file", "*.avi", "*.wmv", "*.mp4", "*.mpg", "*.mp2", "*.mpeg,");
+        fc.getExtensionFilters().addAll(imgType,videoType);
+
+        File selectedFile =  fc.showOpenDialog(null);
+        System.out.println(selectedFile);
+        try {
+            FileInputStream fis = new FileInputStream(selectedFile);
+            BufferedInputStream bis = new BufferedInputStream(fis);
+            Image img = new Image(bis);
+            imgView.setImage(img);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void inviteFriendGO() {
         try {
             Parent nextScene = FXMLLoader.load(getClass().getResource("inviteFriend.fxml"));
             Scene scene = new Scene(nextScene);
             Stage primaryStage = (Stage) inviteGO.getScene().getWindow();
+            primaryStage.setScene(scene);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void chattingRoomExit() {
+        try {
+            Parent nextScene = FXMLLoader.load(getClass().getResource("cha.fxml"));
+            Scene scene = new Scene(nextScene);
+            Stage primaryStage = (Stage) chattingExit.getScene().getWindow();
             primaryStage.setScene(scene);
 
         } catch (Exception e) {

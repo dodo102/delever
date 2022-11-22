@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.deliver.InviteFriendController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="800.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.deliver.InviteFriendController">
+    <children>
+        <Label layoutX="26.0" layoutY="14.0" prefHeight="91.0" prefWidth="476.0" text="친구 초대" />
+        <TableView layoutX="62.0" layoutY="428.0" prefHeight="200.0" prefWidth="427.0">
+            <columns>
+                <TableColumn prefWidth="130.0" text="C1" />
+                <TableColumn prefWidth="158.0" text="C2" />
+                <TableColumn prefWidth="138.0" text="Column X" />
+            </columns>
+        </TableView>
+        <Button layoutX="249.0" layoutY="703.0" mnemonicParsing="false" text="Button" />
+        <TextField layoutX="195.0" layoutY="340.0" />
+    </children>
 </AnchorPane>
