@@ -10,7 +10,7 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("chattingRoom.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("cha.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 550, 800);
         scene.getStylesheets().add(getClass().getResource("css.css").toExternalForm());
         stage.setTitle("");

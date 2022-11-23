@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="800.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.deliver.FriendController">
+   <children>
+      <Label layoutX="70.0" layoutY="30.0" prefHeight="30.0" prefWidth="150.0" text="친구 정보">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TableView layoutX="70.0" layoutY="160.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

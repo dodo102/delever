@@ -6,21 +6,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="800.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.deliver.ChaController">
    <children>
-      <TableView layoutX="14.0" layoutY="14.0" prefHeight="340.0" prefWidth="502.0">
+      <TableView fx:id="chatBuildTableView" layoutX="14.0" layoutY="14.0" prefHeight="607.0" prefWidth="502.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="nameCol" prefWidth="89.0" text="C1" />
+          <TableColumn fx:id="roomContentCol" prefWidth="412.0" text="C2" />
         </columns>
       </TableView>
-      <Button layoutX="14.0" layoutY="363.0" mnemonicParsing="false" text="들어가기">
+      <Button fx:id="changBtn" layoutX="14.0" layoutY="675.0" mnemonicParsing="false" onAction="#changeScene" text="들어가기">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="466.0" layoutY="363.0" mnemonicParsing="false" text="제작">
+      <Button fx:id="changBtn2" layoutX="491.0" layoutY="675.0" mnemonicParsing="false" onAction="#changeScene2" text="제작">
          <font>
             <Font size="15.0" />
          </font>
