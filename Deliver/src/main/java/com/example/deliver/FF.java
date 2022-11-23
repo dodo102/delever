@@ -1,19 +1,16 @@
 package com.example.deliver;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class FF {
-    public static void main(String args[]) {
+    public static <JSONParser, JSONObject> void main(String args[]) {
         String clientId = "3vbAs3kmMdj7Lr7HZNHK"; //애플리케이션 클라이언트 아이디
         String clientSecret = "cSen26uwDO"; //애플리케이션 클라이언트 시크릿
 

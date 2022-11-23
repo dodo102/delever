@@ -16,6 +16,6 @@
             <TableColumn prefWidth="200.0" text="친밀도 상태" />
         </columns>
       </TableView>
-      <Button layoutX="450.0" layoutY="400.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="친밀도 등록" />
+      <Button layoutX="425.0" layoutY="400.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Button" />
    </children>
 </AnchorPane>
