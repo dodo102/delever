@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 22-11-04 02:11
+-- 생성 시간: 22-11-24 07:01
 -- 서버 버전: 10.4.21-MariaDB
 -- PHP 버전: 7.3.31
 
@@ -18,24 +18,21 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 데이터베이스: `deliver`
+-- 데이터베이스: `chatting`
 --
 
 -- --------------------------------------------------------
 
 --
--- 테이블 구조 `member`
+-- 테이블 구조 `chat`
 --
 
-CREATE TABLE `member` (
-  `uid` int(9) NOT NULL,
-  `id` varchar(30) DEFAULT NULL,
-  `pw` varchar(16) DEFAULT NULL,
-  `phoneNum` varchar(11) DEFAULT NULL,
-  `address` varchar(50) DEFAULT NULL,
-  `nickName` varchar(30) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `old` int(3) DEFAULT NULL
+CREATE TABLE `chat` (
+  `name` varchar(30) NOT NULL,
+  `chatContent` varchar(200) NOT NULL,
+  `chatTime` time NOT NULL,
+  `id` varchar(20) NOT NULL,
+  `chattingRoomName` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -43,21 +40,10 @@ CREATE TABLE `member` (
 --
 
 --
--- 테이블의 인덱스 `member`
+-- 테이블의 인덱스 `chat`
 --
-ALTER TABLE `member`
-  ADD PRIMARY KEY (`uid`),
+ALTER TABLE `chat`
   ADD UNIQUE KEY `id` (`id`);
-
---
--- 덤프된 테이블의 AUTO_INCREMENT
---
-
---
--- 테이블의 AUTO_INCREMENT `member`
---
-ALTER TABLE `member`
-  MODIFY `uid` int(9) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

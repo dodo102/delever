@@ -8,12 +8,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-<<<<<<< HEAD
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-=======
->>>>>>> b91a843371ae1840013936d86895bafd99419c1d
 import javafx.stage.Stage;
 
 import java.awt.*;
@@ -24,8 +21,6 @@ import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class ChaController implements Initializable {
-
-
 
 
     @FXML
@@ -77,7 +72,7 @@ public class ChaController implements Initializable {
 
 
 
-<<<<<<< HEAD
+
     public void changeScene() {
         try {
             Parent nextScene
@@ -98,19 +93,6 @@ public class ChaController implements Initializable {
             Stage primaryStage = (Stage) changBtn2.getScene().getWindow();
             primaryStage.setScene(scene);
         } catch (Exception e) {
-=======
-public class ChaController  {
-    
-    private Button changBtn;
-    public void changeScene() {
-           try {
-                 Parent nextScene
-                    = FXMLLoader.load(getClass().getResource("chabulid.fxml"));
-                  Scene scene = new Scene(nextScene);
-
-                  Stage primaryStage = (Stage) changBtn.getScene().getWindow();
-          } catch (Exception e) {
->>>>>>> b91a843371ae1840013936d86895bafd99419c1d
             e.printStackTrace();
         }
     }

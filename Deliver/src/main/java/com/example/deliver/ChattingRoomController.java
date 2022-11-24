@@ -117,10 +117,10 @@ public class ChattingRoomController implements Initializable {
                 alert.setContentText("공백오류");
                 alert.show();
             } else {
-                if (chatInput.getText().matches("/*")) {
+                if (chatInput.getText().matches("/*") && !chatInput.getText().trim().equals("/")) {
                     find = chatInput.getText().substring(1);
                     search();
-                    //pstmt.setString(2, );
+                    pstmt.setString(2, find);
                 } else {
                     pstmt.setString(2, chatInput.getText());
                 }
@@ -187,7 +187,7 @@ public class ChattingRoomController implements Initializable {
         }
     }
 
-    public static void search() {
+    public void search() {
         String clientId = "3vbAs3kmMdj7Lr7HZNHK"; //애플리케이션 클라이언트 아이디
         String clientSecret = "cSen26uwDO"; //애플리케이션 클라이언트 시크릿
 
@@ -209,8 +209,11 @@ public class ChattingRoomController implements Initializable {
         requestHeaders.put("X-Naver-Client-Secret", clientSecret);
         String responseBody = get(apiURL, requestHeaders);
 
+        find = responseBody;
 
-       // System.out.println(responseBody);
+
+
+       //System.out.println(responseBody);
     }
 
 
