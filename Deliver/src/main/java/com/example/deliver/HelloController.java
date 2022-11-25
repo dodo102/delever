@@ -45,7 +45,6 @@ public class HelloController {
     }
 
     public void showPassWord() {
-        showPW.isSelected();
         if (showPW.isSelected()) {
             hiddenPW.setText(userPW.getText());
             userPW.setVisible(false);

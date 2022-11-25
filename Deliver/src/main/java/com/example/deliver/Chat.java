@@ -29,7 +29,8 @@ public class Chat {
     private javafx.scene.control.Label pwLa;
 
     public void hideRoom() {
-        if (hide.isSelected()) {
+        hide.isSelected();
+    if (hide.isSelected()) {
             roomPW.setVisible(true);
             pwLa.setVisible(true);
         } else {
